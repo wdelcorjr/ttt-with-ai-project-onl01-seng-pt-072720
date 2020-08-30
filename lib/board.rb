@@ -33,4 +33,9 @@ class Board
         int = input.to_i
         !self.taken?(input) && int.between?(1, 9)
     end
+    def update(position, player)
+        int = position.to_i
+        int -= 1
+        self.cells[int] = player.token unless self.taken?(position)
+    end
 end
