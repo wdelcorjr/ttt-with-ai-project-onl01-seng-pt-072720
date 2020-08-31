@@ -1,5 +1,7 @@
+
 class Game
     attr_accessor :board, :player_1, :player_2
+  
     WIN_COMBINATIONS = [
         [0,1,2],
         [3,4,5],
@@ -35,6 +37,24 @@ class Game
             @winner = self.board.cells[win.first]
         end
     end 
+    def turn
+        move = current_player.move(board)
+        if self.board.valid_move?(move) 
+            self.board.cells[move.to_i-1] = current_player.token
+            move
+        else
+            puts "invalid"
+            self.turn
+        end
+    end
+    def play
+        turn until over?
+        if won?
+            puts "Congratulations #{winner}!"
+        elsif draw?
+            puts "Cat's Game!"
+        end
+    end
 end
 
 

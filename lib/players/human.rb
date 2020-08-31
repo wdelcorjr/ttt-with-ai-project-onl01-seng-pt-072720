@@ -1,6 +1,6 @@
-class Players
+module Players
     class Human < Player
-        def move(arg)
+        def move(board)
             puts 'Please enter "X" or "O" to select token.'
             gets.strip
         end
