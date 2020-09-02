@@ -1,10 +1,15 @@
 #!/usr/bin/env ruby
 
 require_relative '../config/environment'
-
+require 'pry'
 puts "Welcome to Wizard's AI Tic-Tac-Toe!"
-puts "How many humans would you like to play: 0, 1, or 2?"
-num_humans = gets.strip
-player_setter
+new_game = Game.new 
+until new_game.won? 
+    new_game.play
+end
+# puts "How many humans would you like to play: 0, 1, or 2?"
+# num_humans = gets.chomp
+# puts num_humans
+# binding.pry
 
-Game.new(player_1, player_2, board).play
+# Game.new(player_1, player_2, board).play

@@ -38,7 +38,7 @@ class Game
         end
     end 
     def turn
-        move = current_player.move(board)
+        move = current_player.move(@board)
         if self.board.valid_move?(move) 
             self.board.cells[move.to_i-1] = current_player.token
             move
